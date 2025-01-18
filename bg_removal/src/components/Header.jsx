@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { assets } from '../assets/assets';
 import { Upload, ImageIcon } from 'lucide-react';
 
-const Header = ({ assets }) => {
+const Header = () => {
     const [isDragging, setIsDragging] = useState(false);
 
     const handleDragOver = (e) => {
@@ -98,7 +97,7 @@ const Header = ({ assets }) => {
                     <div className="relative group">
                         <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-fuchsia-500 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
                         <img
-                            src={assets.header_img}
+                            src="/api/placeholder/600/400"
                             alt="Background removal demonstration"
                             className="relative w-full rounded-lg shadow-2xl transition-transform duration-500 hover:scale-105"
                         />
