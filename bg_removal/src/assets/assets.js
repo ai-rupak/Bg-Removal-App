@@ -1,5 +1,5 @@
-import logo from './logo.svg'
-import logo_icon from './logo_icon.svg'
+import logo from './logo2.avif'
+import logo_icon from './logo2.avif'
 import arrow_icon from './arrow_icon.svg'
 import header_img from './header_img.png'
 import remove_bg_icon from './remove_bg_icon.svg'
