@@ -1,10 +1,7 @@
-import React, { useContext, useState } from 'react';
-import { assets } from '../assets/assets';
-import { AppContext } from '../context/AppContext';
-import { Upload, Image as ImageIcon } from 'lucide-react';
+import React, { useState } from 'react';
+import { Upload, ImageIcon } from 'lucide-react';
 
 const Header = () => {
-    const { removeBg } = useContext(AppContext);
     const [isDragging, setIsDragging] = useState(false);
 
     const handleDragOver = (e) => {
@@ -22,17 +19,26 @@ const Header = () => {
         setIsDragging(false);
         const file = e.dataTransfer.files[0];
         if (file && file.type.startsWith('image/')) {
-            removeBg(file);
+            // Handle file upload here
+            console.log('File dropped:', file);
+        }
+    };
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            // Handle file upload here
+            console.log('File selected:', file);
         }
     };
 
     return (
-        <div className="relative min-h-[90vh] flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative min-h-[90vh] pt-16 sm:pt-20 flex items-center justify-between max-w-7xl mx-auto px-4 lg:px-8">
             {/* Decorative background elements */}
             <div className="absolute inset-0 -z-10 overflow-hidden">
-                <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
-                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
-                <div className="absolute top-40 left-40 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
+                <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse" />
+                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse" />
+                <div className="absolute top-40 left-40 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse" />
             </div>
 
             <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full gap-12 md:gap-8">
@@ -63,7 +69,7 @@ const Header = () => {
                             }`}
                         >
                             <input
-                                onChange={(e) => removeBg(e.target.files[0])}
+                                onChange={handleFileChange}
                                 type="file"
                                 accept="image/*"
                                 id="upload1"
@@ -87,13 +93,13 @@ const Header = () => {
                 </div>
 
                 {/* Right side - Image */}
-                <div className="flex-1 relative">
+                <div className="flex-1 relative w-full max-w-lg">
                     <div className="relative group">
                         <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-fuchsia-500 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
                         <img
-                            src={assets.header_img}
+                            src="/api/placeholder/600/400"
                             alt="Background removal demonstration"
-                            className="relative w-full max-w-lg mx-auto rounded-lg shadow-2xl transition-transform duration-500 hover:scale-105"
+                            className="relative w-full rounded-lg shadow-2xl transition-transform duration-500 hover:scale-105"
                         />
                     </div>
                 </div>
@@ -103,26 +109,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// Add these styles to your CSS/Tailwind config
-const styles = {
-    keyframes: {
-        blob: {
-            '0%': {
-                transform: 'translate(0px, 0px) scale(1)',
-            },
-            '33%': {
-                transform: 'translate(30px, -50px) scale(1.1)',
-            },
-            '66%': {
-                transform: 'translate(-20px, 20px) scale(0.9)',
-            },
-            '100%': {
-                transform: 'translate(0px, 0px) scale(1)',
-            },
-        },
-    },
-    animation: {
-        blob: 'blob 7s infinite',
-    },
-};
