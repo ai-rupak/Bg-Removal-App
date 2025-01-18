@@ -2,6 +2,10 @@
 
 This project is a **Background Removal Application** built using the **MERN stack** (MongoDB, Express, React, Node.js). The app provides an intuitive and seamless way for users to upload images and remove their backgrounds. It's designed with modern features like authentication, real-time notifications, and a responsive interface for an enhanced user experience.
 
+## Preview
+Here's a preview of the app's UI:
+![Background Removal App](/bg_removal/public/bgapp.png)
+
 ## Features
 
 - **Frontend**:

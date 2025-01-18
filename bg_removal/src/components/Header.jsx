@@ -27,7 +27,7 @@ const Header = () => {
     };
 
     return (
-        <div className="relative min-h-[90vh] flex items-center justify-between max-w-7xl mx-auto px-4 lg:px-8">
+        <div className="relative min-h-[90vh] flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Decorative background elements */}
             <div className="absolute inset-0 -z-10 overflow-hidden">
                 <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
