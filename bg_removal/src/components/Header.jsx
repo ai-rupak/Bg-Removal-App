@@ -87,6 +87,7 @@ const Header = () => {
                 </div>
 
                 {/* Right side - Image */}
+                
                 <div className="flex-1 relative">
                     <div className="relative group">
                         <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-fuchsia-500 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
